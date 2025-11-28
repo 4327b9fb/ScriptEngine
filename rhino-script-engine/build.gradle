@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+
+    implementation 'org.mozilla:rhino:1.7.15'
+    implementation project(':base-script-engine')
+}
+
+ext {
+    PUBLISH_ARTIFACT_ID = 'rhino-script-engine'
+    PUBLISH_VERSION = version
+    PUBLISH_NAME = 'Script Engine - Rhino Implementation'
+    PUBLISH_DESCRIPTION = 'Rhino JavaScript engine implementation for the Script Engine framework on Android'
+}

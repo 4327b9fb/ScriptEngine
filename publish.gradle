@@ -1,0 +1,65 @@
+subprojects { subproject ->
+    afterEvaluate {
+        if (subproject.plugins.hasPlugin('com.android.library') || subproject.plugins.hasPlugin('java')) {
+            subproject.ext.PUBLISH_GROUP_ID = subproject.group.toString()
+
+            def PUBLISH_GROUP_ID = subproject.ext.PUBLISH_GROUP_ID
+            def PUBLISH_ARTIFACT_ID = subproject.ext.PUBLISH_ARTIFACT_ID
+            def PUBLISH_VERSION = subproject.ext.PUBLISH_VERSION
+            def PUBLISH_NAME = subproject.ext.PUBLISH_NAME
+            def PUBLISH_DESCRIPTION = subproject.ext.PUBLISH_DESCRIPTION
+
+            /*subproject.android {
+                publishing {
+                    singleVariant("release") {
+                        withSourcesJar()
+                        withJavadocJar()
+                    }
+                }
+            }*/
+
+            subproject.apply plugin: 'com.vanniktech.maven.publish'
+
+            mavenPublishing {
+                // Set the coordinates manually, but you can also use the Gradle properties
+                coordinates(PUBLISH_GROUP_ID, PUBLISH_ARTIFACT_ID, PUBLISH_VERSION)
+
+                // Publish to Maven Central, but automatic release is set as false
+                publishToMavenCentral(false)
+
+                // Set the signing credentials
+                signAllPublications()
+
+                // Self-explanatory metadata for the most part
+                pom {
+                    name = PUBLISH_NAME
+                    description = PUBLISH_DESCRIPTION
+                    // If your project has a dedicated site, use its URL here
+                    url = 'https://github.com/4327b9fb/ScriptEngine'
+                    // Set your license
+                    licenses {
+                        license {
+                            name = 'The GNU General Public License (GPL)'
+                            url = 'https://www.gnu.org/licenses/gpl-2.0.txt'
+                            distribution = 'repo'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = '4327b9fb'
+                            name = '4327b9fb'
+                            email = '4327b9fb@gmail.com'
+                        }
+                    }
+
+                    // Version control info, if you're using GitHub, follow the format as seen here
+                    scm {
+                        connection = 'scm:git:https://github.com/4327b9fb/ScriptEngine.git'
+                        developerConnection = 'scm:git:https://github.com/4327b9fb/ScriptEngine.git'
+                        url = 'https://github.com/4327b9fb/ScriptEngine'
+                    }
+                }
+            }
+        }
+    }
+}

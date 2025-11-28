@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+ext {
+    PUBLISH_ARTIFACT_ID = 'base-script-engine'
+    PUBLISH_VERSION = version
+    PUBLISH_NAME = 'Script Engine Base'
+    PUBLISH_DESCRIPTION = 'API interfaces for the Script Engine framework on Android'
+}
