@@ -8,7 +8,7 @@ java {
 dependencies {
     testImplementation 'junit:junit:4.13.2'
 
-    implementation 'org.mozilla:rhino:1.7.15'
+    implementation 'org.mozilla:rhino:1.7.15.1'
     implementation project(':base-script-engine')
 }
 

@@ -70,7 +70,7 @@ public final class RhinoTopLevel extends ImporterTopLevel {
         JavaAdapter.init(cx, this, false);
 
         // add top level functions
-        String names[] = { "bindings", "scope", "sync"  };
+        String[] names = { "bindings", "scope", "sync"  };
         defineFunctionProperties(names, RhinoTopLevel.class,
                 ScriptableObject.DONTENUM);
     }
