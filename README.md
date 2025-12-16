@@ -1,4 +1,4 @@
-[![Maven Central Version](https://img.shields.io/maven-central/v/io.github.4327b9fb.scriptengine/rhino-script-engine)](https://central.sonatype.com/artifact/io.github.4327b9fb.scriptengine/rhino-script-engine)
+[![Maven Central Version](https://img.shields.io/maven-central/v/io.github.4327b9fb.scriptengine/rhino-script-engine)](https://central.sonatype.com/artifact/io.github.4327b9fb.scriptengine/rhino-script-engine) [![](https://jitpack.io/v/4327b9fb/ScriptEngine.svg)](https://jitpack.io/#4327b9fb/ScriptEngine)
 
 # Rhino script engine
 
